@@ -1,0 +1,22 @@
+.container {
+    background-color: #dde4e2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.list li {
+    font-size: 17px;
+    color: #14a135;
+    list-style: none;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.list li i {
+    cursor: pointer;
+    color: #e9ab5a;
+    margin-left: 10px;
+}
