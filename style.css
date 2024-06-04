@@ -1,22 +1,43 @@
 .container {
-    background-color: #dde4e2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+  background-color: #dde4e2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
 }
 
 .list li {
-    font-size: 17px;
-    color: #14a135;
-    list-style: none;
-    margin-bottom: 10px;
-    cursor: pointer;
+  font-size: 17px;
+  color: #14a135;
+  list-style: none;
+  margin-bottom: 10px;
+  cursor: pointer;
 }
 
 .list li i {
-    cursor: pointer;
-    color: #e9ab5a;
-    margin-left: 10px;
+  cursor: pointer;
+  color: #e9ab5a;
+  margin-left: 10px;
+}
+
+.task-input-container {
+  display: flex;
+  align-items: center;
+}
+
+.task-input {
+  padding: 10px;
+  border-radius: 5px 0 0 5px;
+  border: 1px solid #ccc;
+  border-right: none;
+}
+
+.add-task-button {
+  padding: 10px 15px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
 }

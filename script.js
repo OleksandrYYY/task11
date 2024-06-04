@@ -3,6 +3,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   createDefaultTasks();
   createList();
+  document.querySelector("#addTaskButton").addEventListener("click", addTask)
 });
 
 function createDefaultTasks() {
@@ -16,15 +17,6 @@ function createDefaultTasks() {
     localStorage.setItem("tasks", JSON.stringify(defaultTasks));
   }
 }
-
-
-// function addTask (text) {
-//   let items = JSON.parse(localStorage.getItem("items")) || [];
-//   items.push(text);
-//   localStorage.setItem("items", JSON.stringify(items));
-//   createList();
-// }
-
 
 function createList () {
   const getElemList = document.querySelector(".list");
@@ -42,7 +34,16 @@ function createList () {
       changeTask(index);
     });
 
+    const removeIcon = document.createElement("i");
+    removeIcon.className = "fa fa-times";
+    removeIcon.addEventListener("click", (event) => {
+      event.stopPropagation();
+      removeTask(index);
+    });
+
+    
     createElemLi.appendChild(createIcon);
+    createElemLi.appendChild(removeIcon);
     getElemList.appendChild(createElemLi);
     createElemLi.addEventListener("click", () => removeTask(index));
   })
@@ -60,6 +61,18 @@ function changeTask (index) {
   let newTask = prompt("Change task:", tasks[index]);
   if (newTask !== null && newTask.trim() !== "") {
     tasks[index] = newTask;
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+    createList();
+  }
+}
+
+function addTask () {
+  let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  const taskInput = document.querySelector("#taskInput");
+  const newTask = taskInput.value.trim();
+  if (newTask !== "") {
+    tasks.push(newTask);
+    taskInput.value = "";
     localStorage.setItem("tasks", JSON.stringify(tasks));
     createList();
   }
